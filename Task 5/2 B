@@ -1,0 +1,73 @@
+#include <iostream>
+
+int main()
+{
+    
+    unsigned int day_price [10001];
+    
+    day_price[-1] = '\0';
+    
+    unsigned int days; // N
+    
+    unsigned int limiter; //K
+    
+    std::cin >> days;
+    std::cin >> limiter;
+    
+    unsigned int list_counter = 0;
+    
+    while (list_counter < days){
+        std::cin >> day_price[list_counter];
+        list_counter++;
+    }
+    
+    list_counter = 0;
+    
+    unsigned int outer_counter = 1;
+    // unsigned int inner_counter = 1;
+    
+    
+    unsigned int marzha = 0;
+    unsigned int curent_sum = 0;
+    
+    while(list_counter < days){
+        
+        // std::cout<<list_counter<<"- list_counter  \n";
+        
+        outer_counter = 1;
+        
+        while((outer_counter < (limiter + 1)) && ((list_counter + outer_counter) < days)){
+            
+            // std::cout<<outer_counter<<"- outer_counter  \n";
+        
+            
+            if (day_price[list_counter] < day_price[list_counter + outer_counter]){
+                
+                curent_sum = day_price[list_counter + outer_counter] - day_price [list_counter];
+                
+            } 
+            
+            // std::cout<<curent_sum<<"- curent_sum  \n";
+                
+            if (marzha < curent_sum){
+                
+                marzha = curent_sum;
+                
+                // std::cout<<marzha<<"- marzha  \n";
+            
+            }
+
+            
+            outer_counter++;
+            
+        }
+        
+        list_counter++;
+        
+    }
+            
+    
+    std::cout<<marzha;
+
+    return 0;
+}
