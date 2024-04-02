@@ -1,0 +1,79 @@
+#include <iostream>
+
+int main()
+{
+    unsigned int G1_1 = 0; // first team goals in first match
+    unsigned int G2_1 = 0; // second team goals in first match
+    
+    unsigned int G1_2 = 0; // first team goals in second match 
+    unsigned int G2_2 = 0; // second team goals in second match
+    
+    int MATCH = 0; // type of match
+    
+    char DOTS;
+    
+    std::cin >> G1_1;
+    if (G1_1 > 5){
+        G1_1 = 5;
+    } else if (G1_1 < 0){
+    	G1_1 = 0;
+    }
+    
+    std::cin >> DOTS;
+    
+    std::cin >> G2_1; 
+    if (G2_1 > 5){
+        G2_1 = 5;
+    } else if (G2_1 < 0){
+    	G2_2 = 0;
+    }
+    
+    std::cin >> G1_2;
+    if (G1_2 > 5){
+        G1_2 = 5;
+    }else if (G1_2 < 0){
+    	G1_2 = 0;
+    }
+    
+    std::cin >> DOTS;
+    
+    std::cin >> G2_2;
+    if (G2_2 > 5){
+        G2_2 = 5;
+    }else if (G2_2 < 0){
+    	G2_2 = 0;
+    }
+      
+    std::cin >> MATCH;
+    if (MATCH > 2){
+        MATCH = 2;
+    } else if (MATCH < 1){
+    	MATCH = 1;
+    }
+
+
+    int NEED = 0;
+
+    switch(MATCH){
+        case (1) :
+            if ((G2_1 + G2_2) >= (G1_1 + G1_2)){
+                NEED = ((G2_1 + G2_2) - (G1_1 + G1_2));
+                if (G2_1 >= G1_2+NEED){
+                    NEED += 1;
+                }
+            }
+            break;
+        case (2) :
+            if ((G2_1 + G2_2) >= (G1_1 + G1_2)) {
+                NEED = ((G2_1 + G2_2) - (G1_1 + G1_2)); 
+                if (G2_2 >= G1_1){
+                    NEED += 1;
+                }
+            }
+            break;
+    }
+    
+    std::cout << NEED;
+
+    return 0;
+}
