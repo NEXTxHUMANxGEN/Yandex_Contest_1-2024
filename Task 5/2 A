@@ -1,0 +1,63 @@
+#include <iostream>
+
+int main()
+{
+    
+    unsigned int number_x;
+    unsigned int number_y;
+    
+    unsigned int min_x;
+    unsigned int min_y;
+    
+    unsigned int max_x;
+    unsigned int max_y;
+    
+    unsigned int count = 0;
+    
+    std::cin >> count;
+    
+    unsigned int counter = 1;
+    
+    if (count > 0){
+        std::cin >> number_x;
+        std::cin >> number_y;
+        
+        min_x = number_x;
+        max_x = number_x;
+        
+        min_y = number_y;
+        max_y = number_y;
+    }
+    
+    while (counter < count){
+        
+        std::cin >> number_x;
+        std::cin >> number_y;
+        
+        if (number_x < min_x){
+            min_x = number_x;
+        } else if (number_x > max_x){
+            max_x = number_x;
+        }
+        
+        if (number_y < min_y){
+            min_y = number_y;
+        } else if (number_y > max_y){
+            max_y = number_y;
+        }
+        
+        counter++;
+    }
+    
+    counter = 0;
+
+    std::cout<<min_x;
+    std::cout<<" ";
+    std::cout<<min_y;
+    std::cout<<" ";
+    std::cout<<max_x;
+    std::cout<<" ";
+    std::cout<<max_y;
+
+    return 0;
+}
