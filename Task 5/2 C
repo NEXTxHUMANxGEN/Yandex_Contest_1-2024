@@ -1,0 +1,51 @@
+#include <iostream>
+
+int main()
+{
+    
+    int lenght_sum = 0;
+    int lenght_max = 0;
+    
+    int amount_parts = 0;
+    int lenght = 0;
+    
+    std::cin >> amount_parts;
+    
+    int counter = 0;
+    
+    while (counter < amount_parts){
+        
+        std::cin >> lenght;
+        
+        if (lenght_max < lenght){
+            
+            lenght_sum += lenght_max;
+            
+            lenght_max = lenght;
+            
+        } else {
+        
+            lenght_sum += lenght;
+        
+        }
+        counter++;
+    }
+    
+    int answer = 0;
+    
+    if (lenght_max - lenght_sum < 1){
+        
+        answer = lenght_sum + lenght_max;
+    
+        
+    } else {
+        
+        answer = lenght_max - lenght_sum;
+    
+        
+    }
+    
+    std::cout<<answer;
+
+    return 0;
+}
