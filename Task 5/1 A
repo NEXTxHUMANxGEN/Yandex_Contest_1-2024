@@ -1,0 +1,39 @@
+#include <iostream>
+
+int main()
+{
+    int P = 0; // tree number
+    int V = 0; // range
+    
+    int Q = 0; // tree number 
+    int M = 0; // range
+    
+    std::cin >> P;
+    std::cin >> V;
+    std::cin >> Q;
+    std::cin >> M;
+    
+    unsigned int SUM = 0;
+    
+    int TREE_COUNTER = P-V;
+    
+    while (TREE_COUNTER >= (P-V) and TREE_COUNTER <= (P+V)){ // number of trees by Vasya
+        SUM++;
+        TREE_COUNTER++;
+    }
+    
+    TREE_COUNTER = Q-M;
+    
+    while (TREE_COUNTER >= (Q-M) and TREE_COUNTER <= (Q+M)){ // number of trees by Masha without Vasya's trees
+        if (TREE_COUNTER >= (P-V) and TREE_COUNTER <= (P+V)){
+            TREE_COUNTER++;
+            continue;
+        } 
+        SUM++;
+        TREE_COUNTER++;
+    }
+    
+    std::cout << SUM;
+
+    return 0;
+}
