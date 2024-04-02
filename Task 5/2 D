@@ -1,0 +1,143 @@
+#include <iostream>
+
+int main()
+{
+    
+    int number_counter = 0;
+    int number_x = 0;
+    int number_y = 0;
+    
+    int field[8][8] = {
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+   { 0, 0, 0, 0, 0, 0, 0, 0 },
+};
+    
+    int counter = 0;
+    
+    std::cin >> number_counter;
+    
+    while(counter < number_counter){
+        
+        std::cin >> number_x;
+        std::cin >> number_y;
+        
+        
+        field[number_x - 1][number_y - 1] = 4;
+        
+        counter++;
+        
+    }
+    
+    counter = 0;
+    
+    int perimetr = 0;
+    
+    int inner_counter = 0;
+    
+    // while (counter < 8){
+        
+    //     inner_counter = 0;
+        
+    //     while (inner_counter < 8){
+    //         std::cout << field[counter][inner_counter];
+    //         inner_counter++;
+
+    //     }
+    //     counter++;
+    //     std::cout << "\n";   
+    // }
+    // counter = 0;
+    // inner_counter = 0;
+    
+    
+    while (counter < 8){
+        
+        inner_counter = 0;
+        
+        while (inner_counter < 8){
+            
+            if (field[counter][inner_counter] != 0) {
+            
+                if ((inner_counter - 1) >= 0){
+                    
+                    if (field[counter][inner_counter - 1] != 0){
+                        
+                        field[counter][inner_counter - 1] -= 1;
+                        
+                    }
+                    
+                }             
+                
+                if ((counter - 1) >= 0){
+                    
+                    if (field[counter - 1][inner_counter] != 0){
+                        
+                        field[counter - 1][inner_counter] -= 1;
+                        
+                    }
+                    
+                }   
+    
+                if ((inner_counter + 1) < 8){
+                    
+                    if (field[counter][inner_counter + 1] != 0){
+                        
+                        field[counter][inner_counter + 1] -= 1;
+                        
+                    }
+                    
+                }  
+                
+                if ((counter + 1) < 8){
+                    
+                    if (field[counter + 1][inner_counter] != 0){
+                        
+                        field[counter + 1][inner_counter] -= 1;
+                        
+                    }
+                    
+                }
+            
+            // perimetr += field[counter][inner_counter];
+            
+            }
+            
+            inner_counter++;
+            
+        }
+        
+        counter++;
+        
+    }
+
+    counter = 0;
+    inner_counter = 0;
+
+    while (counter < 8){
+        
+        inner_counter = 0;
+        
+        while (inner_counter < 8){
+            
+            perimetr += field[counter][inner_counter];
+            
+            inner_counter++;
+
+        }
+        counter++;
+        // std::cout << "\n";   
+    }
+    counter = 0;
+    inner_counter = 0;
+    
+    
+    std::cout<<perimetr;
+
+    return 0;
+}
